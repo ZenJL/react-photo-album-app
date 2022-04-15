@@ -39,7 +39,7 @@ function AuthGuard({ children }) {
     return () => {
       isMounted.current = false;
     };
-    //// eslint-disable-next-line
+    // eslint-disable-next-line
   }, [isMounted]);
 
   if (!token || !isAuth) {

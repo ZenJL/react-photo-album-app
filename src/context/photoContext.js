@@ -351,6 +351,7 @@ const PhotoProvider = ({ children }) => {
     }
 
     authenticate(token);
+    // eslint-disable-next-line
   }, [token]);
 
   // useEffect(() => {

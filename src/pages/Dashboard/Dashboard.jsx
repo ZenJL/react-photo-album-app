@@ -98,7 +98,8 @@ function Dashboard() {
     } catch (error) {
       console.log(error);
     }
-  }, [page, limitPhotos, currentPagePath]);
+    // eslint-disable-next-line
+  }, [page, limitPhotos, currentPagePath, token, navigate]);
 
   if (isLoading) return <Spinner />;
   // if (photos.length === 0) return <Spinner />;
