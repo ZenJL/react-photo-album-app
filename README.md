@@ -5,7 +5,9 @@ This project was built with React using Context API combine Reducer and styled w
 ## Features
 
 - Register/login
+ 
   ![registerPhoto](https://user-images.githubusercontent.com/80218147/163570450-4109e1f4-f61d-4258-b417-1aafb4a47824.png)
+  
   ![loginPhoto](https://user-images.githubusercontent.com/80218147/163570491-78ce80f1-9b61-49d9-a7e9-07d7e0e44365.png)
 
 - Authenticate user in protected routes
