@@ -4,10 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// Context
+import { PhotoProvider } from 'context/photoContext';
+
 ReactDOM.render(
-  <React.StrictMode>
+  // <React.StrictMode>
+  <PhotoProvider>
     <App />
-  </React.StrictMode>,
+  </PhotoProvider>,
+  // </React.StrictMode>,
   document.getElementById('root')
 );
 

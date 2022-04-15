@@ -1,38 +1,259 @@
+@import 'antd/dist/antd.css';
+
+body {
+  line-height: 1.5;
+}
+
+p {
+  margin-bottom: 0;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.mainLayout {
+  width: 100%;
+  max-width: 100vw;
 }
 
-@keyframes App-logo-spin {
-  from {
+.headerSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f0f2f5;
+  flex-wrap: wrap;
+}
+
+.headerGroup {
+  display: flex;
+  align-items: center;
+  max-height: 100%;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  height: 64px;
+  width: 96px;
+}
+
+.logoutBtn,
+.loginNav,
+.registerNav,
+.addPhotoNav {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.logoutBtn {
+  border-radius: 24px;
+  padding: 6.4px 24px;
+}
+
+.userProfile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.userInfo {
+  font-size: 20px;
+}
+
+.avatarDiv {
+  display: flex;
+  align-items: center;
+}
+
+.ant-image.ant-image-error {
+  display: flex;
+  align-items: center;
+}
+
+.contentSection {
+  padding: 0 50px;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  flex: 1;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+}
+
+.card .ant-card-head {
+  order: 1;
+  border-top: 1px solid #eee;
+  background-color: #f7f7f7;
+}
+
+.cardImg {
+  object-fit: cover;
+}
+.ant-card-head,
+.ant-card-cover,
+.ant-card-actions {
+  flex-shrink: 0;
+}
+.ant-card-body {
+  flex: 1;
+}
+
+.ant-card-meta-title {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.ant-card-meta-description {
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+/* add photo form */
+
+.ant-select-selection-placeholder {
+  line-height: 48px;
+  text-align: start;
+}
+
+.ant-pagination-options {
+  display: none;
+}
+
+.selectAddFormCustom .ant-select-selector {
+  border-radius: 60px !important;
+  height: 48px !important;
+}
+
+.selectAddFormCustom .ant-select-selector .ant-select-selection-placeholder {
+  line-height: 48px !important;
+}
+
+#login_category,
+.ant-select-selector .ant-select-selection-item {
+  line-height: 48px !important;
+  text-align: left;
+}
+
+.footerCard {
+  margin-top: 10px;
+  text-align: right;
+}
+
+.footerSection {
+  margin: 20px 0;
+  padding: 0 50px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footerSection p {
+  font-size: 16px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  cursor: default;
+}
+
+.shortDesc {
+  font-size: 16px;
+  font-weight: 500;
+  color: #929293;
+  cursor: default;
+}
+
+#randomBtn {
+  font-size: 20px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#randomBtn,
+#submitBtn {
+  background-color: #20c747;
+  border-color: #20c747;
+  box-shadow: 0px 17px 10px -10px rgba(0, 0, 0, 0.4);
+  transition: all ease-in-out 300ms;
+}
+
+#submitBtn {
+  font-weight: 600;
+  font-size: 24px;
+}
+
+#randomBtn:hover {
+  opacity: 0.8;
+  box-shadow: 0px 37px 20px -15px rgba(0, 0, 0, 0.2);
+  transform: translate(0px, -2px);
+}
+
+#submitBtn:hover {
+  opacity: 0.8;
+  box-shadow: 0px 37px 20px -15px rgba(0, 0, 0, 0.2);
+  transform: translate(0px, -5px);
+}
+
+.haveAccountSection {
+  font-size: 20px;
+  margin-bottom: 0;
+  color: #929293;
+  cursor: default;
+}
+
+.loginLink {
+  color: #464647;
+}
+
+.spinnerContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5000;
+}
+
+.spinner {
+  width: 64px;
+  height: 64px;
+  border: 8px solid;
+  border-color: #00cc66 transparent #00cc66 transparent;
+  border-radius: 50%;
+  animation: spin 1.2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
     transform: rotate(0deg);
   }
-  to {
+  100% {
     transform: rotate(360deg);
   }
+}
+
+.ant-result-subtitle {
+  font-size: 24px;
+  font-weight: 500;
 }

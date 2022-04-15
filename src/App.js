@@ -1,23 +1,99 @@
-import logo from './logo.svg';
 import './App.css';
+
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+// Layouts
+import MainLayout from 'layouts/MainLayout';
+
+// Pages
+import Login from 'pages/Login';
+import Register from 'pages/Register';
+import NotFound from 'pages/NotFound';
+
+import Dashboard from 'pages/Dashboard';
+import PhotoEdit from 'pages/PhotoEdit';
+import PhotoAdd from 'pages/PhotoAdd';
+import PhotoDetail from 'pages/PhotoDetail';
+
+// Guard
+import AuthGuard from 'guards/AuthGuard';
+import GuestGuard from 'guards/GuestGuard';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <Router>
+        <Routes>
+          <Route
+            path={`/`}
+            element={
+              <MainLayout>
+                <AuthGuard>
+                  <Dashboard />
+                </AuthGuard>
+              </MainLayout>
+            }
+          />
+
+          <Route
+            path='/photo-add'
+            element={
+              <MainLayout>
+                <AuthGuard>
+                  <PhotoAdd />
+                </AuthGuard>
+              </MainLayout>
+            }
+          />
+
+          <Route
+            path='/photo-edit/:photoId'
+            element={
+              <MainLayout>
+                <AuthGuard>
+                  <PhotoEdit />
+                </AuthGuard>
+              </MainLayout>
+            }
+          />
+
+          <Route
+            path='/photo-detail/:photoId'
+            element={
+              <MainLayout>
+                <AuthGuard>
+                  <PhotoDetail />
+                </AuthGuard>
+              </MainLayout>
+            }
+          />
+
+          <Route
+            path='/login'
+            element={
+              <GuestGuard>
+                <Login />
+              </GuestGuard>
+            }
+          />
+          <Route
+            path='/register'
+            element={
+              <GuestGuard>
+                <Register />
+              </GuestGuard>
+            }
+          />
+          <Route
+            path='/*'
+            element={
+              <GuestGuard>
+                <NotFound />
+              </GuestGuard>
+            }
+          />
+        </Routes>
+      </Router>
     </div>
   );
 }
